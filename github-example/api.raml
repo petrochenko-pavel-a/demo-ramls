@@ -61,6 +61,7 @@ resourceTypes:
         offset?: integer
         limit?: integer
       (core.list):
+      displayName:  List <<Type | !pluralize>>
       responses:
         200:
           body:
@@ -69,6 +70,7 @@ resourceTypes:
                total: integer
     post:
       (core.create):
+      displayName:  Create <<Type>>
       body: <<Type>>
       responses:
         201:
@@ -81,21 +83,23 @@ resourceTypes:
         (core.reference): <<Type>>.id
     put:
       (core.update):
+      displayName:  Update <<Type>>
       body: <<Type>>
       responses:
         203:
           body: <<Type>>
     get:
+      displayName: Read <<Type>>
       (core.details):
       responses:
         200:
           body:
             <<Type>>
     delete:
+       displayName:  Delete <<Type>>
        (core.delete):
        responses:
          204:
-
 /projects:
   type:  { collection: {Type : Project} }
   /{projectId}:
